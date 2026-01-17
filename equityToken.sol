@@ -33,7 +33,7 @@ contract equityToken is ERC20Upgradeable, AccessControlUpgradeable, UUPSUpgradea
     function initialize ( address compliance, address admin) external initializer{
         __AccessControl_init(); 
         __ERC20_init("equityToken", "EQT");
-        __UUPSUpgradeable_init();
+      //  __UUPSUpgradeable_init(); v5 OZ depracated this initializer
         complianceModule = IComplianceModule(compliance);
 
         _grantRole (COMPLIANCE_ADMIN_ROLE, admin);
@@ -92,4 +92,5 @@ contract equityToken is ERC20Upgradeable, AccessControlUpgradeable, UUPSUpgradea
     return super.supportsInterface(interfaceId);
 }
     
+
 }
