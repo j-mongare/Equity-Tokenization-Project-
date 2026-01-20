@@ -6,11 +6,6 @@ import "../src/ComplianceModule.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 
 
-/*//////////////////////////////////////////////////////////////
-                    TEST-LOCAL INTERFACE
-//////////////////////////////////////////////////////////////*/
-
-
 
 /*//////////////////////////////////////////////////////////////
                         MOCK REGISTRY
@@ -151,3 +146,4 @@ contract ComplianceModuleTest is Test {
 	
 	}
 }
+
