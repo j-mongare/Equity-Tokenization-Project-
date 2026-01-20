@@ -24,6 +24,7 @@ contract ComplianceModule is Initializable, AccessControlUpgradeable {
 
     //investorClass => max shares per transfer (simplified) 
     mapping (bytes32 => uint256 ) internal holdingLimit;
+
     //wallet => lockup expiry
     mapping ( address => uint64) internal lockUpExpiry;
 
@@ -90,5 +91,9 @@ contract ComplianceModule is Initializable, AccessControlUpgradeable {
     function setLockUp(address investor, uint64 expiry)external onlyRole (RULES_ADMIN_ROLE){
         lockUpExpiry[investor] = expiry;
     }
+
+    function getHoldingLimit(bytes32 investorClass) external view returns (uint256){
+     return holdingLimit[investorClass];
     
+}
 }
