@@ -52,6 +52,8 @@ contract ComplianceRegistry is Initializable, AccessControlUpgradeable{
     function approve (address user) external onlyRole(COMPLIANCE_ADMIN_ROLE){
         approved[user] = true;
     }
+   //revoke approval
+
     function revoke (address user ) external onlyRole(COMPLIANCE_ADMIN_ROLE){
         approved [user] = false;
     }
@@ -61,11 +63,14 @@ contract ComplianceRegistry is Initializable, AccessControlUpgradeable{
      function setJurisdiction (address user , bytes32 country) external onlyRole (COMPLIANCE_ADMIN_ROLE){
         jurisdiction[user] = country;
      }
+     // investorClass => Retai, accredited or instituional
+
      function setInvestorClass(address user, bytes32 class)external onlyRole (COMPLIANCE_ADMIN_ROLE){
         investorClass[user] = class;
      }
      function removeFromBlackList(address user)external onlyRole (COMPLIANCE_ADMIN_ROLE){
         blackListed[user] = false;
      }
+
 
 }
