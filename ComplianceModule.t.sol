@@ -23,6 +23,7 @@ contract MockComplianceRegistry is IComplianceRegistry {
     function setBlacklisted(address user, bool value) external {
         blacklisted[user] = value;
     }
+   //@notice investorClass => retail, instituional, accredited
 
     function setInvestorClass(address user, bytes32 class) external {
         investorClass[user] = class;
@@ -146,4 +147,5 @@ contract ComplianceModuleTest is Test {
 	
 	}
 }
+
 
