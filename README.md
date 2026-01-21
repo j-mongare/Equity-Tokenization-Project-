@@ -112,6 +112,23 @@ Upgrade Model
 •	_authorizeUpgrade() implemented in upgradeable contracts
 •	UpgradeAuthority coordinates upgrade execution
 •	Storage gaps reserved in all upgradeable contracts
+
+**Testing Strategy
+
+This project uses layered testing to validate behavior at different depths:
+
+Unit / Component Tests
+Focus on individual contracts or subsystems in isolation.
+Some dependencies may be mocked to verify local logic.
+
+Integration Tests (*.Integration.t.sol)
+Test how multiple real contracts interact, with mocks allowed at system boundaries.
+Used to verify that equityToken correctly enforces decisions returned by the compliance layer.
+
+System Tests (*.System.t.sol)
+Full end-to-end tests using only real production contracts and proxies.
+No mocks. These tests validate the system exactly as deployed.
+
 ________________________________________
 Notes
 This system is intentionally modular and conservative.
