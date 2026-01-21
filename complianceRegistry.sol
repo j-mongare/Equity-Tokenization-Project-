@@ -44,6 +44,8 @@ contract ComplianceRegistry is Initializable, AccessControlUpgradeable{
     function getJurisdiction (address user) external view returns (bytes32){
         return jurisdiction[user];
     }
+     // investorClass => Retai, accredited or institutional
+
     function getInvestorClass(address user ) external view returns (bytes32){
         return investorClass[user];
     }
@@ -63,7 +65,7 @@ contract ComplianceRegistry is Initializable, AccessControlUpgradeable{
      function setJurisdiction (address user , bytes32 country) external onlyRole (COMPLIANCE_ADMIN_ROLE){
         jurisdiction[user] = country;
      }
-     // investorClass => Retai, accredited or instituional
+    
 
      function setInvestorClass(address user, bytes32 class)external onlyRole (COMPLIANCE_ADMIN_ROLE){
         investorClass[user] = class;
@@ -74,3 +76,4 @@ contract ComplianceRegistry is Initializable, AccessControlUpgradeable{
 
 
 }
+
